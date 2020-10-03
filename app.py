@@ -5,7 +5,7 @@
 
 # %matplotlib inline 
 import pandas as pd
-import seaborn as sns
+#import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
@@ -27,28 +27,18 @@ insurance.gender.replace(('MALE', 'FEMALE'), ('Male', 'Female'), inplace = True)
 insurance['bodily_injuries'] = insurance['bodily_injuries'].astype(int)
 
 
-#insurance['total_claim_amount'] = insurance['total_claim_amount'].str.replace(r'\D', '').astype(int)
-#insurance['vehicle_claim'] = insurance['vehicle_claim'].str.replace(r'\D', '').astype(int)
-#insurance['injury_claim'] = insurance['injury_claim'].str.replace(r'\D', '').astype(int)
-#insurance['total_claim_amount'] = insurance['total_claim_amount'].str.replace(r'\D', '').astype(float)
-#insurance['policy_deductable'] = insurance['policy_deductable'].str.replace(r'\D', '').astype(float)
-#insurance['policy_annual_premium'] = insurance['policy_annual_premium'].str.replace(r'\D', '').astype(int)
-#insurance['months_as_customer'] = insurance['months_as_customer'].astype(object).astype(int)
-
- 
-
 # There are several columns that are nonsense and/or have a high number of distinct values. Drop those suckers 
 
 insurance.drop(columns=['_c39', 'policy_number', 'policy_bind_date', 'incident_location', 'incident_date', 
                        'insured_zip', 'policy_csl', 'insured_occupation', 'auto_model', 'umbrella_limit',
-                       'policy_deductable', 'police_report_available', 'witnesses',
- 'authorities_contacted', 'incident_hour_of_the_day',    
-'bodily_injuries',
+                       'policy_deductable', 'witnesses',
+# 'authorities_contacted', 
+'incident_hour_of_the_day',    
+#'bodily_injuries',
 'policy_state', 
 'incident_city',
 'capital-gains',
 'capital-loss',
-'insured_occupation',
 'property_damage'
 ], inplace=True)
 
@@ -193,7 +183,7 @@ def run():
                       'insured_hobbies': insured_hobbies,
                       'insured_education_level': insured_education_level,
                       'insured_relationship': insured_relationship,
-#                      'insured_occupation': insured_occupation,
+                      'insured_occupation': insured_occupation,
                       'policy_annual_premium': policy_annual_premium,
                       'police_report_available': police_report_available,
                       'authorities_contacted': authorities_contacted,
